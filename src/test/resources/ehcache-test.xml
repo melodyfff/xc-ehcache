@@ -1,5 +1,6 @@
 <ehcache>
-    <diskStore path="java.io.tmpdir"/>
+    <!--<diskStore path="java.io.tmpdir"/>-->
+    <diskStore path="/opt/cache"/>
     <defaultCache
             maxElementsInMemory="10000"
             maxEntriesLocalHeap="10000"
@@ -14,6 +15,7 @@
     </defaultCache>
 
     <cache name="xinchen"
-           maxElementsInMemory="10000">
+           overflowToDisk="true"
+           maxElementsInMemory="100">
     </cache>
 </ehcache>
