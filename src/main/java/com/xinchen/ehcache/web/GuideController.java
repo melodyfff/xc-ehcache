@@ -4,7 +4,8 @@ import com.xinchen.ehcache.core.Response;
 import com.xinchen.ehcache.core.TestObject;
 import com.xinchen.ehcache.service.CacheService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,11 +36,14 @@ public class GuideController {
         return response;
     }
 
-    @PostMapping("/put")
-    public Response put(){
-        String key = String.valueOf(System.currentTimeMillis());
-        TestObject testObject = new TestObject(key);
-        cacheService.put(key,testObject);
+    @PutMapping("/put/{times}")
+    public Response put(@PathVariable("times") int times){
+        if (times<=0){
+            return new Response();
+        }
+        for(int i = 0;i<times;i++){
+            cacheService.put(String.valueOf(i),new TestObject(String.valueOf(System.currentTimeMillis())));
+        }
         return new Response();
     }
 
