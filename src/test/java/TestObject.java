@@ -8,6 +8,8 @@ import java.io.Serializable;
 public class TestObject implements Serializable {
     private int name;
 
+    TestObject(){}
+
 
     public TestObject(int name) {
         this.name = name;
