@@ -14,9 +14,32 @@ import java.util.List;
 public class Response<T> {
 
     /** 默认成功 **/
-    private Status status = Status.OK;
+    private Status status;
 
-    private String message = "success.";
+    private String message;
 
     private List<T> data;
+
+
+    public Response(Status status, String message, List<T> data) {
+        this.status = status;
+        this.message = message;
+        this.data = data;
+    }
+
+    public static Response<?> ok(List<?> data){
+        return new Response<>(Status.OK, "success.", data);
+    }
+
+    public static Response<?> fail(){
+        return new Response<>(Status.BADREQUEST, "fail.", null);
+    }
+
+    public static Response<?> fail(String message){
+        return new Response<>(Status.BADREQUEST, message, null);
+    }
+
+    public static Response<?> of(Status status,String message, List<?> data){
+        return new Response<>(status, message, data);
+    }
 }

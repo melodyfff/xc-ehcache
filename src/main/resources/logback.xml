@@ -4,7 +4,7 @@
     <property name="AppName" value="xc-ehcache"/>
 
     <property name="CONSOLE_LOG_PATTERN"
-              value="%highlight(%d{yyyy-MM-dd HH:mm:ss.SSS})|-%highlight(%-5level)| %boldYellow(%thread)| %green(%logger{36} %line) - %cyan(%msg%n)"/>
+              value="%highlight(%d{yyyy-MM-dd HH:mm:ss.SSS})|-%highlight(%-5level)| %boldYellow(%thread)| %green(%logger{36}:%line) - %msg%n"/>
 
 
     <contextName>${AppName}</contextName>

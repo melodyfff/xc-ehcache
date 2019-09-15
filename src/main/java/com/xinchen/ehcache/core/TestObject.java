@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author Xin Chen (xinchenmelody@gmail.com)
@@ -17,5 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 public class TestObject implements Serializable {
-    private String name;
+    private int number;
+
+    private Date date;
 }

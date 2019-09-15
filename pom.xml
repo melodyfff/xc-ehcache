@@ -16,6 +16,7 @@
         <junit.version>4.12</junit.version>
         <ehcache.version>2.6.11</ehcache.version>
         <logback.version>1.2.3</logback.version>
+        <jcl-over-slf4j.version>1.7.24</jcl-over-slf4j.version>
         <jackson.version>2.9.9</jackson.version>
         <fastjson.version>1.2.60</fastjson.version>
         <lombok.version>1.18.8</lombok.version>
@@ -35,6 +36,13 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
+        </dependency>
+
+        <!--  接管spring日志输出  -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${jcl-over-slf4j.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -70,14 +78,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

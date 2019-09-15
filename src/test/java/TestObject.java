@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author Xin Chen (xinchenmelody@gmail.com)
@@ -8,11 +9,14 @@ import java.io.Serializable;
 public class TestObject implements Serializable {
     private int name;
 
+    private Date date;
+
     TestObject(){}
 
 
-    public TestObject(int name) {
+    public TestObject(int name, Date date) {
         this.name = name;
+        this.date = date;
     }
 
     public int getName() {

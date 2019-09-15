@@ -14,7 +14,7 @@
         <!--<persistence strategy="localTempSwap"/>-->
     </defaultCache>
 
-    <cache name="xinchen"
+    <cache name="hello"
            overflowToDisk="true"
            maxElementsInMemory="100">
     </cache>
