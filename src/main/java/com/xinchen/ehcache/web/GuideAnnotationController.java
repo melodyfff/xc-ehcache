@@ -2,7 +2,7 @@ package com.xinchen.ehcache.web;
 
 import com.xinchen.ehcache.core.Response;
 import com.xinchen.ehcache.core.TestObject;
-import com.xinchen.ehcache.service.CacheService;
+import com.xinchen.ehcache.service.CacheAnnotationService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,10 +22,10 @@ import java.util.Collections;
 public class GuideAnnotationController {
     @Resource
     @Qualifier("cacheWithAnnotation")
-    private CacheService<TestObject> cacheService;
+    private CacheAnnotationService<TestObject> cacheService;
 
     @GetMapping("/cache/{key}")
-    public Response getKey(@PathVariable("key") String key){
+    public Response getKey(@PathVariable("key") int key){
         return Response.ok(Collections.singletonList(cacheService.get(key)));
     }
 }

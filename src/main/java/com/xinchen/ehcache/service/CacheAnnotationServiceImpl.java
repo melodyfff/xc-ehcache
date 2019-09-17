@@ -15,12 +15,12 @@ import java.util.List;
  * @date Created In 2019/9/15 23:22
  */
 @Service("cacheWithAnnotation")
-public class CacheAnnotationServiceImpl implements CacheService<TestObject> {
+public class CacheAnnotationServiceImpl implements CacheAnnotationService<TestObject> {
 
-    @Cacheable(value = "hello")
+    @Cacheable(value = "hello",key = "#key")
     @Override
-    public TestObject get(String key) {
-        return new TestObject(Integer.parseInt(key),new Date());
+    public TestObject get(int key) {
+        return new TestObject(key,new Date());
     }
 
     @Override
