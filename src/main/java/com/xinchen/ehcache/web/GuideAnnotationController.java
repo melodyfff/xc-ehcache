@@ -4,8 +4,10 @@ import com.xinchen.ehcache.core.Response;
 import com.xinchen.ehcache.core.TestObject;
 import com.xinchen.ehcache.service.CacheAnnotationService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,8 +26,19 @@ public class GuideAnnotationController {
     @Qualifier("cacheWithAnnotation")
     private CacheAnnotationService<TestObject> cacheService;
 
-    @GetMapping("/cache/{key}")
+    @GetMapping("/{key}")
     public Response getKey(@PathVariable("key") int key){
         return Response.ok(Collections.singletonList(cacheService.get(key)));
+    }
+
+    @PutMapping("/{key}")
+    public Response put(@PathVariable("key") int key){
+        return Response.ok(Collections.singletonList(cacheService.put(key)));
+    }
+
+    @DeleteMapping("/{key}")
+    public Response delete(@PathVariable("key") int key){
+        cacheService.delete(key);
+        return Response.ok(null);
     }
 }

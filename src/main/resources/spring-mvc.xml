@@ -14,7 +14,8 @@
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-    <context:component-scan base-package="com.xinchen.ehcache" />
+    <!--  这里如果扫描com.xinchen.ehcache路径的话 @Cacheable注解可能不生效,具体原因暂时未知-->
+    <context:component-scan base-package="com.xinchen.ehcache.web" />
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <!-- 若是spring3.X 则引用org.springframework.http.converter.json.MappingJacksonHttpMessageConverter -->

@@ -18,16 +18,16 @@ public interface CacheAnnotationService<T> {
     T get(int key);
 
     /**
-     * 获取全部
-     * @return List
-     */
-    List<T> getAll();
-
-    /**
      * 插入缓存
      * @param key key
-     * @param o T
+     * @return T
      */
-    void put(String key, T o);
+    T put(int key);
 
+    /**
+     * 删除
+     * @param key key
+     * @return T
+     */
+    void delete(int key);
 }
