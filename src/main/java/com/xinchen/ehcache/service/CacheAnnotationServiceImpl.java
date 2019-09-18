@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -45,5 +46,19 @@ public class CacheAnnotationServiceImpl implements CacheAnnotationService<TestOb
     public void delete(int key) {
         // do delete...
     }
+
+
+    @Caching(cacheable = {@Cacheable(key = "#key+'-hello'")})
+    @Override
+    public List<TestObject> getAll(String key) {
+        // 模拟返回很多
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return Collections.singletonList(new TestObject(Integer.parseInt(key), new Date()));
+    }
+
 
 }

@@ -49,6 +49,11 @@ public class CacheServiceImpl implements CacheService<TestObject>, InitializingB
         defaultCache.put(new Element(key,o));
     }
 
+    @Override
+    public List getKeys() {
+        return defaultCache.getKeys();
+    }
+
 
     private void checkStatus(){
         if (null==defaultCache){

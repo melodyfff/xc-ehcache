@@ -30,4 +30,10 @@ public interface CacheService<T> {
      */
     void put(String key,T o);
 
+    /**
+     * 获取缓存中的所有keys
+     * @return keys
+     */
+    List<?> getKeys();
+
 }

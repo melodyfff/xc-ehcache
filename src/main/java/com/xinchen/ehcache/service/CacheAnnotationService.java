@@ -27,7 +27,16 @@ public interface CacheAnnotationService<T> {
     /**
      * 删除
      * @param key key
-     * @return T
      */
     void delete(int key);
+
+
+    /**
+     *
+     * 获取全部
+     *
+     * @param key key
+     * @return List<T>
+     */
+    List<T> getAll(String key);
 }

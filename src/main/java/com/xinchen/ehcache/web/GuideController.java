@@ -29,6 +29,13 @@ public class GuideController {
     @Qualifier("cacheWithProgram")
     private CacheService<TestObject> cacheService;
 
+    @GetMapping("/")
+    public Response keys(){
+        // 返回所有的keys
+        return Response.ok(cacheService.getKeys());
+    }
+
+
     @GetMapping("/cache/{key}")
     public Response getKey(@PathVariable("key") String key){
         return Response.ok(Collections.singletonList(cacheService.get(key)));
