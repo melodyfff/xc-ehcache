@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <spring.version>4.3.25.RELEASE</spring.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <ehcache.version>2.6.11</ehcache.version>
         <logback.version>1.2.3</logback.version>
         <jcl-over-slf4j.version>1.7.24</jcl-over-slf4j.version>
